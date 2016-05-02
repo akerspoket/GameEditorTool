@@ -3,10 +3,10 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class TestScriptLayersButton : MonoBehaviour {
-    
+    public Color activeColor;
+    public Color inactiveColor;
 	// Use this for initialization
 	void Start () {
-    
 	}
 	
 	// Update is called once per frame
@@ -16,12 +16,12 @@ public class TestScriptLayersButton : MonoBehaviour {
 
     public void MakeInactive()
     {
-        GetComponent<Button>().image.color = Color.grey;
+        GetComponent<Button>().image.color = inactiveColor;
 
     }
 
     public void MakeActive()
     {
-        GetComponent<Button>().image.color = Color.white;
+        GetComponent<Button>().image.color = activeColor;
     }
 }
