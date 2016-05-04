@@ -11,7 +11,7 @@ public class SphereScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Creating == true)
+        if (false)//Creating == true)
         {
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);

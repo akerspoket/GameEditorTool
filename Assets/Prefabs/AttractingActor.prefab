@@ -75,7 +75,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3d257a2731a7e34cb03e586ca0cf0e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chargeValue: -25
+  chargeValue: -40
+  Creating: 1
 --- !u!136 &13644410
 CapsuleCollider:
   m_ObjectHideFlags: 1

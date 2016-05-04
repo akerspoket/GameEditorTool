@@ -16,7 +16,7 @@ public class PotentialFieldCharge : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        charge = 0;
     }
 
     public void AddCharge(float p_charge)
