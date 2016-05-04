@@ -6,7 +6,6 @@ public class GroundCreation : MonoBehaviour {
     public Camera cam;
     public const int dimx = 30;
     public const int dimy = 30;
-    public ArrayList groundList;
 	// Use this for initialization
 	void Start () {
         cam.transform.position = new Vector3(-15, 18, dimy / 2);
