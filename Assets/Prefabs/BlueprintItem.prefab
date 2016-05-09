@@ -28,6 +28,7 @@ GameObject:
   - 222: {fileID: 22256258}
   - 114: {fileID: 11401168}
   - 114: {fileID: 11441280}
+  - 114: {fileID: 11489100}
   m_Layer: 5
   m_Name: BlueprintItem
   m_TagString: Untagged
@@ -144,7 +145,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 11401168}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11489100}
+        m_MethodName: CreateObject
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 149766, guid: 9d51e3f00cf1e224daed0fd60a0324a2,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &11444358
@@ -179,7 +192,18 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Sphere
+  m_Text: Attracting
+--- !u!114 &11489100
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 181022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc637f1b3b015dd4b82765310454931d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!222 &22202142
 CanvasRenderer:
   m_ObjectHideFlags: 1

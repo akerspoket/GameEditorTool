@@ -52,15 +52,19 @@ public class UpdatePotentialFields : MonoBehaviour
                 Creating = false;
             }
         }
-        // Update the ground cubes
-        Vector3 thisPosition = transform.position;
-        GameObject[] ground = GameObject.FindGameObjectsWithTag("Respawn");
-        foreach (GameObject cube in ground)
+        else
         {
-            Vector3 cubePosition = cube.transform.position;
-            float distance = (cubePosition - thisPosition).magnitude;
-            float charge = chargeValue / distance;
-            cube.GetComponent<PotentialFieldCharge>().AddCharge(charge);
+            // Update the ground cubes
+            Vector3 thisPosition = transform.position;
+            GameObject[] ground = GameObject.FindGameObjectsWithTag("Respawn");
+            Debug.Log("Adding charge to thingies");
+            foreach (GameObject cube in ground)
+            {
+                Vector3 cubePosition = cube.transform.position;
+                float distance = (cubePosition - thisPosition).magnitude;
+                float charge = chargeValue / distance;
+                cube.GetComponent<PotentialFieldCharge>().AddCharge(charge);
+            }
         }
     }
 }
