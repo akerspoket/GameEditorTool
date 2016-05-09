@@ -2,9 +2,10 @@
 using System.Collections;
 
 public class EntityHolder : MonoBehaviour {
-    private GameObject entity;
+    private GameObject actor;
     public GameObject selectionRing;
     private GameObject ownRing;
+    private bool selected;
 	// Use this for initialization
 	void Start () {
         ownRing = Instantiate(selectionRing);
@@ -13,24 +14,37 @@ public class EntityHolder : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
-	}
+        if (selected)
+        {
+            ownRing.transform.localPosition = actor.transform.position + new Vector3(0, 0, 0);
+            ownRing.GetComponent<MeshRenderer>().enabled = true;
+            if (Input.GetKeyDown(KeyCode.Delete))
+            {
+                GetComponentInParent<EntitiesList>().RemoveActor(actor);
+                Destroy(actor);
+                Destroy(ownRing);
+                Destroy(this.transform.gameObject);
+            }
+        }
+    }
 
     public void SetEntity(GameObject obj)
     {
-        entity = obj;
+        actor = obj;
     }
 
     public void MakeSelected(bool selected)
     {
-        if (selected)
-        {
-            ownRing.transform.localPosition = entity.transform.position + new Vector3(0, 0, 0);
-            ownRing.GetComponent<MeshRenderer>().enabled = true;
+        this.selected = selected;
+        if (!selected)
+        {           
+            ownRing.GetComponent<MeshRenderer>().enabled = false;       
         }
-        else
-        {
-            ownRing.GetComponent<MeshRenderer>().enabled = false;
-        }
+
+    }
+
+    public GameObject GetActor()
+    {
+        return actor;
     }
 }

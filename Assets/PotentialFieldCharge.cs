@@ -17,6 +17,7 @@ public class PotentialFieldCharge : MonoBehaviour
     void Update()
     {
         charge = 0;
+        AddCharge(0);
     }
 
     public void AddCharge(float p_charge)
@@ -26,7 +27,7 @@ public class PotentialFieldCharge : MonoBehaviour
 
         float colorFactor = charge / 40.0f; // Silly hard-coded value
         // Color the cube properly
-        if (charge > 0)
+        if (charge >= 0)
             GetComponent<Renderer>().material.color = new Color(0.5f + colorFactor, 0.5f - colorFactor, 0.5f - colorFactor, 1);
         else if (charge < 0)
             GetComponent<Renderer>().material.color = new Color(0.5f + colorFactor, 0.5f - colorFactor, 0.5f + colorFactor, 1);

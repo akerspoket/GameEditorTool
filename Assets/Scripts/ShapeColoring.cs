@@ -24,12 +24,9 @@ public class ShapeColoring : MonoBehaviour {
             // If hit anything
             if (Physics.Raycast(ray, out hit))
             {
-                Debug.Log("Hit something?");
                 //If pixel ? 
                 if (hit.collider != null)
                 {
-                    Debug.Log("collider!");
-
                     // If pixel
                     GameObject gamObj = (GameObject)hit.transform.gameObject;
                     if (gamObj.GetComponent<ChangePixelColor>() != null)

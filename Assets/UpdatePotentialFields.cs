@@ -57,7 +57,6 @@ public class UpdatePotentialFields : MonoBehaviour
             // Update the ground cubes
             Vector3 thisPosition = transform.position;
             GameObject[] ground = GameObject.FindGameObjectsWithTag("Respawn");
-            Debug.Log("Adding charge to thingies");
             foreach (GameObject cube in ground)
             {
                 Vector3 cubePosition = cube.transform.position;
