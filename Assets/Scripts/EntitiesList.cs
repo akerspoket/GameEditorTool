@@ -24,6 +24,7 @@ public class EntitiesList : MonoBehaviour {
         newObject.GetComponentInChildren<Text>().text = obj.transform.name;
         newObject.transform.localPosition = new Vector3(-6, 165, 0) + new Vector3(0, -(actors.Count - 1) * 30, 0);
         newObject.transform.localScale = new Vector3(1, 1, 1);
+        newObject.GetComponent<EntityHolder>().SetEntity(obj);
     }
 
     public void RemoveActor(GameObject obj)

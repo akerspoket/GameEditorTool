@@ -42,5 +42,6 @@ public class SphereScript : MonoBehaviour {
         m_object.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x
                 , Input.mousePosition.y, 10));
         Creating = true;
+        GetComponentInParent<Canvas>().GetComponentInChildren<EntitiesList>().AddNewActor(m_object);
     }
 }
