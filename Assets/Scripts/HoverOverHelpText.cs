@@ -15,7 +15,6 @@ public class HoverOverHelpText : MonoBehaviour {
     void Start() {
         int fontSize = ObjectToInstantiate.GetComponentInChildren<Text>().fontSize;
         textWidth = fontSize * helpText.Length;
-        Debug.Log(textWidth);
     }
 
     // Update is called once per frame
