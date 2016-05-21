@@ -5,9 +5,14 @@ public class SphereScript : MonoBehaviour {
     private bool Creating = false;
     GameObject m_object;
     // Use this for initialization
+    public int nrOfClicks = 0;
+    SortingOfBlueprints hejsan;
+
     void Start () {
-	
-	}
+        hejsan = GameObject.FindObjectOfType(typeof(SortingOfBlueprints)) as SortingOfBlueprints;
+        hejsan.AddToList(gameObject);
+        
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -41,7 +46,14 @@ public class SphereScript : MonoBehaviour {
         m_object = Instantiate(objectToCreate);
         m_object.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x
                 , Input.mousePosition.y, 10));
+        nrOfClicks++;
+        hejsan.SortList();
+        hejsan.PlaceOnTop(gameObject);
         Creating = true;
         GetComponentInParent<Canvas>().GetComponentInChildren<EntitiesList>().AddNewActor(m_object);
+    }
+    public int GetClicks()
+    {
+        return nrOfClicks;
     }
 }
