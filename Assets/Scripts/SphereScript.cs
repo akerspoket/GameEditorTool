@@ -10,8 +10,15 @@ public class SphereScript : MonoBehaviour {
 
     void Start () {
         hejsan = GameObject.FindObjectOfType(typeof(SortingOfBlueprints)) as SortingOfBlueprints;
-        hejsan.AddToList(gameObject);
-        
+        if (hejsan.IsFull())
+        {
+            hejsan.PlaceOnTop(gameObject);
+        }
+        else
+        {
+            hejsan.AddToList(gameObject);
+        }
+
     }
 	
 	// Update is called once per frame

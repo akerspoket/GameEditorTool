@@ -24,16 +24,32 @@ public class SortingOfBlueprints : MonoBehaviour
             knappar[i].GetComponent<RectTransform>().localPosition = new Vector3(0, 138 - (25 * i), 0);
         }
     }
+    public bool IsFull()
+    {
+        if (knappar.Count == 6)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
     public void PlaceOnTop(GameObject p_button)
     {
         if(onTop != null)
         {
             knappar.Add(onTop);
         }
+        // FIXA SÅ ATT DET FINNS EN ON TOP I START
         knappar.Remove(p_button);
         onTop = p_button;
         SortList();
         p_button.GetComponent<RectTransform>().localPosition = new Vector3(0, 163, 0);
+    }
+    public GameObject getOnTop()
+    {
+        return onTop;
     }
     void Update()
     {

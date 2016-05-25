@@ -2485,7 +2485,14 @@ MonoBehaviour:
   tabort1: {fileID: 2095482538}
   tabort2: {fileID: 1101939508}
   tabort3: {fileID: 592981858}
+  tabort4: {fileID: 1919533395}
+  tabort5: {fileID: 1459910250}
+  tabort6: {fileID: 1891781744}
   SearchBar: {fileID: 208503688}
+--- !u!1 &1459910250 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 181022, guid: 64fc695147f9e6143a24b7c0254e6303, type: 2}
+  m_PrefabInternal: {fileID: 680148384}
 --- !u!1 &1466457933
 GameObject:
   m_ObjectHideFlags: 0
@@ -3147,6 +3154,14 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 64fc695147f9e6143a24b7c0254e6303, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1891781744 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 181022, guid: 64fc695147f9e6143a24b7c0254e6303, type: 2}
+  m_PrefabInternal: {fileID: 606335883}
+--- !u!1 &1919533395 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 181022, guid: 64fc695147f9e6143a24b7c0254e6303, type: 2}
+  m_PrefabInternal: {fileID: 1534657628}
 --- !u!1 &1944172156
 GameObject:
   m_ObjectHideFlags: 0
