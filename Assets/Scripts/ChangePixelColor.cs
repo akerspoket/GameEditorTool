@@ -33,13 +33,16 @@ public class ChangePixelColor : MonoBehaviour
             if (holdLeft)
             {
                 Image img = GetComponent<Image>();
-                img.color = new Color(0, 0, 0);
-                charge = 10;
+                charge = fieldHolder.GetComponent<StartShapeEditor>().coloringCharge;
 
-                //if (charge >= 0)
-                //    GetComponent<Renderer>().material.color = new Color(0.5f + colorFactor, 0.5f - colorFactor, 0.5f - colorFactor, 1);
-                //else if (charge < 0)
-                //    GetComponent<Renderer>().material.color = new Color(0.5f + colorFactor, 0.5f - colorFactor, 0.5f + colorFactor, 1);
+                float colorFactor = charge / 40.0f;
+
+                if (charge > 0)
+                    img.color = new Color(0.5f + colorFactor, 0.5f - colorFactor, 0.5f - colorFactor, 1);
+                else if (charge < 0)
+                    img.color = new Color(0.5f + colorFactor, 0.5f - colorFactor, 0.5f + colorFactor, 1);
+                else
+                    img.color = new Color(255, 255, 255);
             }
             else
             {
@@ -66,8 +69,16 @@ public class ChangePixelColor : MonoBehaviour
 
         if(holdLeft)
         {
-            img.color = new Color(0, 0, 0);
-            charge = 10;
+            charge = fieldHolder.GetComponent<StartShapeEditor>().coloringCharge;
+
+            float colorFactor = charge / 40.0f;
+
+            if (charge > 0)
+                img.color = new Color(0.5f + colorFactor, 0.5f - colorFactor, 0.5f - colorFactor, 1);
+            else if (charge < 0)
+                img.color = new Color(0.5f + colorFactor, 0.5f - colorFactor, 0.5f + colorFactor, 1);
+            else
+                img.color = new Color(255, 255, 255);
         }
         else
         {

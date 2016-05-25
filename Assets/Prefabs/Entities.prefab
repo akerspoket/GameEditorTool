@@ -128,6 +128,7 @@ GameObject:
   - 224: {fileID: 22411814}
   - 222: {fileID: 22214910}
   - 114: {fileID: 11497152}
+  - 114: {fileID: 11431464}
   m_Layer: 5
   m_Name: Entities
   m_TagString: Untagged
@@ -162,6 +163,19 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11431464
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 194286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 488a6a0b64310f649bc506c9f9919a34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listItemPrefab: {fileID: 143226, guid: a2470496080166f4dbb261c52545b8b1, type: 2}
+  actors: []
 --- !u!114 &11452598
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -440,7 +454,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -810, y: 226}
+  m_AnchoredPosition: {x: -810, y: 288}
   m_SizeDelta: {x: 300, y: 450}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22437100

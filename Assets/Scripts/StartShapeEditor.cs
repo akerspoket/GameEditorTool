@@ -26,7 +26,7 @@ public class StartShapeEditor : MonoBehaviour {
 
     GameObject[] gridArray = new GameObject[dimenxionX * dimenxionY];
 
-    float coloringCharge = 0.0f;
+    public float coloringCharge = 0.0f;
 
     // Object to use array on
     GameObject selectedObject;
@@ -78,12 +78,22 @@ public class StartShapeEditor : MonoBehaviour {
 
         button = GameObject.FindGameObjectWithTag("CustomizeButton");
 
+        bool foundText = false;
         foreach (Transform child in transform)
         {
-            child.gameObject.SetActive(false);
+            if (child.GetComponent<Text>() == null || foundText)
+            {
+                child.gameObject.SetActive(false);
+            }
+            else
+            {
+                foundText = true;
+            }
+
         }
 
         button.SetActive(false);
+        OnValueChargeChange();
     }
 	
 	// Update is called once per frame
@@ -130,7 +140,7 @@ public class StartShapeEditor : MonoBehaviour {
 
     public void OnValueChargeChange()
     {
-        coloringCharge = (mainSlider.value * 2.0f - 1.0f) * 40.0f;
+        coloringCharge = (secondSlider.value * 2.0f - 1.0f) * 40.0f;
     }
 
     public void SetInactive()
@@ -153,9 +163,18 @@ public class StartShapeEditor : MonoBehaviour {
         if (shouldHide)
         {
             // Set all inactive, except for the convert to new shape box if shouldn't be active
+            bool foundText = false;
             foreach (Transform child in transform)
             {
-                child.gameObject.SetActive(false);
+                if (child.GetComponent<Text>() == null || foundText)
+                {
+                    child.gameObject.SetActive(false);
+                }
+                else
+                {
+                    foundText = true;
+                }
+
             }
 
             button.SetActive(true);
@@ -179,8 +198,15 @@ public class StartShapeEditor : MonoBehaviour {
                     // change color based on charge
                     if (gridArray[y * 30 + x].GetComponent<ChangePixelColor>().charge > 0)
                     {
+                        float colorFactor = gridArray[y * 30 + x].GetComponent<ChangePixelColor>().charge / 40.0f;
                         Image img = gridArray[y * 30 + x].GetComponent<Image>();
-                        img.color = new Color(0, 0, 0);
+                        img.color = new Color(0.5f + colorFactor, 0.5f - colorFactor, 0.5f - colorFactor, 1);
+                    }
+                    else if(gridArray[y * 30 + x].GetComponent<ChangePixelColor>().charge < 0)
+                    {
+                        float colorFactor = gridArray[y * 30 + x].GetComponent<ChangePixelColor>().charge / 40.0f;
+                        Image img = gridArray[y * 30 + x].GetComponent<Image>();
+                        img.color = new Color(0.5f + colorFactor, 0.5f - colorFactor, 0.5f + colorFactor, 1);
                     }
                     else
                     {

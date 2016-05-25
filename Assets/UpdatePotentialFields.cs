@@ -89,6 +89,24 @@ public class UpdatePotentialFields : MonoBehaviour
         else
         {
             // Always use own values
+            EntitiesList entityList = GameObject.FindGameObjectWithTag("Entities").GetComponent<EntitiesList>();
+
+            bool foundSelected = false;
+            bool isUs = false;
+
+            foreach (var item in entityList.actors)
+            {
+                foundSelected = item.GetComponent<EntityHolder>().selected;
+                if (foundSelected)
+                {
+                    if (item.GetComponent<EntityHolder>().GetActor() == gameObject)
+                    {
+                        isUs = true;
+                    }
+                    break;
+                }
+            }
+            
 
             if (useNormalShape)
             {
@@ -100,7 +118,23 @@ public class UpdatePotentialFields : MonoBehaviour
                     Vector3 cubePosition = cube.transform.position;
                     float distance = (cubePosition - thisPosition).magnitude;
                     float charge = chargeValue / distance;
-                    cube.GetComponent<PotentialFieldCharge>().AddCharge(charge);
+
+                    if (foundSelected)
+                    {
+                        if (isUs)
+                        {
+                            cube.GetComponent<PotentialFieldCharge>().AddCharge(charge);
+                        }
+                        else
+                        {
+                            cube.GetComponent<PotentialFieldCharge>().AddUnselectedCharge(charge);
+                        }
+                    }
+                    else
+                    {
+                        cube.GetComponent<PotentialFieldCharge>().AddCharge(charge);
+                    }
+                    //cube.GetComponent<PotentialFieldCharge>().AddCharge(charge);
                 }
             }
             else
@@ -118,12 +152,29 @@ public class UpdatePotentialFields : MonoBehaviour
                 int endY = Mathf.Min(gridY + 15, 30);
 
                 // Only loop over grid
-                for (int y = startY; y < endY; y++)
+                for (int y = 0; y < 30; y++)
                 {
-                    for (int x = startX; x < endX; x++)
+                    for (int x = 0; x < 30; x++)
                     {
                         float chargeToAdd = customField[y * 30 + x];
-                        groundCreation.groundArray[y * 30 + x].GetComponent<PotentialFieldCharge>().AddCharge(chargeToAdd);
+
+                        if (foundSelected)
+                        {
+                            if (isUs)
+                            {
+                                groundCreation.groundArray[y * 30 + x].GetComponent<PotentialFieldCharge>().AddCharge(chargeToAdd);
+                            }
+                            else
+                            {
+                                groundCreation.groundArray[y * 30 + x].GetComponent<PotentialFieldCharge>().AddUnselectedCharge(chargeToAdd);
+                            }
+                        }
+                        else
+                        {
+                            groundCreation.groundArray[y * 30 + x].GetComponent<PotentialFieldCharge>().AddCharge(chargeToAdd);
+                        }
+
+                        //groundCreation.groundArray[y * 30 + x].GetComponent<PotentialFieldCharge>().AddCharge(chargeToAdd);
                     }
                 }
 

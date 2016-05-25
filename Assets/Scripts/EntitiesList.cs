@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class EntitiesList : MonoBehaviour {
     public GameObject listItemPrefab;
-    private List<GameObject> actors = new List<GameObject>();
+    public List<GameObject> actors = new List<GameObject>();
 	// Use this for initialization
 	void Start () {
 	
