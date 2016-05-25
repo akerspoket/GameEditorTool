@@ -4,8 +4,8 @@ using UnityEngine.UI;
 
 public class StartShapeEditor : MonoBehaviour {
 
-    int dimenxionX = 25;
-    int dimenxionY = 25;
+    const int dimenxionX = 30;
+    const int dimenxionY = 30;
 
     int boardSizeX = 250;
     int boardSizeY = 250;
@@ -22,7 +22,16 @@ public class StartShapeEditor : MonoBehaviour {
     float opacity = 1.0f;
 
     public Slider mainSlider;
+    public Slider secondSlider;
 
+    GameObject[] gridArray = new GameObject[dimenxionX * dimenxionY];
+
+    float coloringCharge = 0.0f;
+
+    // Object to use array on
+    GameObject selectedObject;
+
+    GameObject button;
 
     // Use this for initialization
     void Start () {
@@ -44,6 +53,11 @@ public class StartShapeEditor : MonoBehaviour {
                 rectTrans.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, pixelSize.x);
                 rectTrans.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, pixelSize.y);
                 gameObj.transform.localScale = new Vector3(1, 1, 1);
+
+                gameObj.SetActive(false);
+
+                // Add to array
+                gridArray[y * dimenxionY + x] = gameObj;
             }
         }
 
@@ -62,12 +76,31 @@ public class StartShapeEditor : MonoBehaviour {
         arrowRect.localPosition = new Vector3(offsetX - pixelSize.x/2.0f, offsetY - pixelSize.y/2.0f, 0);
         arrowRect.transform.localScale = new Vector3(1, 1, 1);
 
+        button = GameObject.FindGameObjectWithTag("CustomizeButton");
 
+        foreach (Transform child in transform)
+        {
+            child.gameObject.SetActive(false);
+        }
+
+        button.SetActive(false);
     }
 	
 	// Update is called once per frame
 	void Update () {
-	
+
+        // If we have a selected object, update the field
+        if (selectedObject != null)
+        {
+            UpdatePotentialFields updateFields = selectedObject.GetComponent<UpdatePotentialFields>();
+            for (int y = 0; y < 30; y++)
+            {
+                for (int x = 0; x < 30; x++)
+                {
+                    updateFields.customField[y * 30 + x] = gridArray[y * 30 + x].GetComponent<ChangePixelColor>().charge;
+                }
+            }
+        }
 	}
 
     public void OnValueChange()
@@ -93,5 +126,88 @@ public class StartShapeEditor : MonoBehaviour {
             Image img = realObject.GetComponent<Image>();
             img.color = new Color(255, 255, 255, opacity);
         }
+    }
+
+    public void OnValueChargeChange()
+    {
+        coloringCharge = (mainSlider.value * 2.0f - 1.0f) * 40.0f;
+    }
+
+    public void SetInactive()
+    {
+        // Set all inactive
+        //foreach (Transform child in transform)
+        //{
+        //    child.gameObject.SetActive(false);
+        //}
+
+        //button.SetActive(true);
+    }
+
+    public void SetActive(GameObject obj)
+    {
+        selectedObject = obj;
+
+        bool shouldHide = !selectedObject.GetComponent<UpdatePotentialFields>().IsUsingCustomShape();
+
+        if (shouldHide)
+        {
+            // Set all inactive, except for the convert to new shape box if shouldn't be active
+            foreach (Transform child in transform)
+            {
+                child.gameObject.SetActive(false);
+            }
+
+            button.SetActive(true);
+        }
+        else
+        {
+            // Set all inactive, except for the convert to new shape box if shouldn't be active
+            foreach (Transform child in transform)
+            {
+                child.gameObject.SetActive(true);
+            }
+
+            UpdatePotentialFields updateFields = selectedObject.GetComponent<UpdatePotentialFields>();
+            // Update canvas
+            for (int y = 0; y < 30; y++)
+            {
+                for (int x = 0; x < 30; x++)
+                {
+                    gridArray[y * 30 + x].GetComponent<ChangePixelColor>().charge = updateFields.customField[y * 30 + x];
+
+                    // change color based on charge
+                    if (gridArray[y * 30 + x].GetComponent<ChangePixelColor>().charge > 0)
+                    {
+                        Image img = gridArray[y * 30 + x].GetComponent<Image>();
+                        img.color = new Color(0, 0, 0);
+                    }
+                    else
+                    {
+                        Image img = gridArray[y * 30 + x].GetComponent<Image>();
+                        img.color = new Color(255, 255, 255);
+                    }
+                }
+            }
+
+            button.SetActive(false);
+        }
+    }
+
+    public void EnableCustomization()
+    {
+        if (selectedObject == null)
+        {
+            return;
+        }
+
+        foreach (Transform child in transform)
+        {
+            child.gameObject.SetActive(true);
+        }
+
+        button.SetActive(false);
+
+        selectedObject.GetComponent<UpdatePotentialFields>().UseCustomShape();
     }
 }

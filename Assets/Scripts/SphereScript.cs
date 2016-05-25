@@ -57,6 +57,8 @@ public class SphereScript : MonoBehaviour {
         hejsan.SortList();
         hejsan.PlaceOnTop(gameObject);
         Creating = true;
+
+
         GetComponentInParent<Canvas>().GetComponentInChildren<EntitiesList>().AddNewActor(m_object);
     }
     public int GetClicks()

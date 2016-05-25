@@ -6,6 +6,9 @@ public class GroundCreation : MonoBehaviour {
     public Camera cam;
     public const int dimx = 30;
     public const int dimy = 30;
+
+    public GameObject[] groundArray = new GameObject[dimx*dimy];
+
 	// Use this for initialization
 	void Start () {
         cam.transform.position = new Vector3(-15, 18, dimy / 2);
@@ -14,7 +17,8 @@ public class GroundCreation : MonoBehaviour {
         {
             for (int j = 0; j < dimx; j++)
             {
-                Object newObj = Instantiate(obj, new Vector3(i, 0, j), new Quaternion(0, 0, 0, 1));
+                GameObject newObj = (GameObject)Instantiate(obj, new Vector3(i, 0, j), new Quaternion(0, 0, 0, 1));
+                groundArray[i * dimy + j] = newObj;
             }
         }
 	}

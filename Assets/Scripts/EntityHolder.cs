@@ -5,7 +5,7 @@ public class EntityHolder : MonoBehaviour {
     private GameObject actor;
     public GameObject selectionRing;
     private GameObject ownRing;
-    private bool selected;
+    public bool selected;
 	// Use this for initialization
 	void Start () {
         ownRing = Instantiate(selectionRing);
@@ -35,12 +35,17 @@ public class EntityHolder : MonoBehaviour {
 
     public void MakeSelected(bool selected)
     {
+        GameObject shapeEditor = GameObject.FindGameObjectWithTag("ShapeEditor");
         this.selected = selected;
         if (!selected)
         {           
-            ownRing.GetComponent<MeshRenderer>().enabled = false;       
+            ownRing.GetComponent<MeshRenderer>().enabled = false;
+            shapeEditor.GetComponent<StartShapeEditor>().SetInactive();
+        }   
+        else
+        {
+            shapeEditor.GetComponent<StartShapeEditor>().SetActive(actor);
         }
-
     }
 
     public GameObject GetActor()
