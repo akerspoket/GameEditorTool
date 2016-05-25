@@ -44,6 +44,10 @@ public class ChatRoomHandling : MonoBehaviour {
     public void SendComment()
     {
         string text = inputField.text;
+        if (text == "")
+        {
+            return;
+        }
         inputField.text = "";
 
         text = "You: " + text;
