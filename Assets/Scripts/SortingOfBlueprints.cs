@@ -7,13 +7,30 @@ using UnityEngine.UI;
 public class SortingOfBlueprints : MonoBehaviour
 {
     GameObject onTop;
+    int numberOfButtons = 6;
     List<GameObject> knappar = new List<GameObject>();
     // Use this for initialization
     void Start()
     {
 
     }
-
+    public bool HasAddedBlueprint()
+    {
+        if (numberOfButtons == 6)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+    public void SuperMethodFrank(GameObject p_button)
+    {
+        AddToList(p_button);
+        numberOfButtons++;
+        PlaceOnTop(p_button);
+    }
     public void SortList()
     {
         knappar.Sort((IComparer<GameObject>)new sort());
@@ -26,7 +43,7 @@ public class SortingOfBlueprints : MonoBehaviour
     }
     public bool IsFull()
     {
-        if (knappar.Count == 6)
+        if (knappar.Count == numberOfButtons)
         {
             return true;
         }

@@ -10,14 +10,17 @@ public class SökScript : MonoBehaviour {
     public GameObject tabort4;
     public GameObject tabort5;
     public GameObject tabort6;
+    public GameObject tabort7;
     public GameObject SearchBar;
+    SortingOfBlueprints hejsanhoppsan;
     Vector3 pos;
     bool dontSetActiveAgain = false;
     string searchText = "";
     // Use this for initialization
     void Start () {
         pos = transform.position;
-	}
+        hejsanhoppsan = GameObject.FindObjectOfType(typeof(SortingOfBlueprints)) as SortingOfBlueprints;
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -30,6 +33,10 @@ public class SökScript : MonoBehaviour {
             tabort4.SetActive(true);
             tabort5.SetActive(true);
             tabort6.SetActive(true);
+            if (hejsanhoppsan.HasAddedBlueprint())
+            {
+                tabort7.SetActive(true);
+            }
             if (dontSetActiveAgain)
             {
                 SortingOfBlueprints hejsan = GameObject.FindObjectOfType(typeof(SortingOfBlueprints)) as SortingOfBlueprints;
@@ -37,15 +44,20 @@ public class SökScript : MonoBehaviour {
                 dontSetActiveAgain = false;
             }
         }        
-        else {
-        GetComponent<RectTransform>().localPosition = new Vector3(0, 163, 0);
-        tabort1.SetActive(false);
-        tabort2.SetActive(false);
-        tabort3.SetActive(false);
-        tabort4.SetActive(false);
-        tabort5.SetActive(false);
-        tabort6.SetActive(false);
-        dontSetActiveAgain = true;
+        else
+        {
+            GetComponent<RectTransform>().localPosition = new Vector3(0, 163, 0);
+            tabort1.SetActive(false);
+            tabort2.SetActive(false);
+            tabort3.SetActive(false);
+            tabort4.SetActive(false);
+            tabort5.SetActive(false);
+            tabort6.SetActive(false);
+            if (hejsanhoppsan.HasAddedBlueprint())
+            {
+                tabort7.SetActive(false);
+            }
+            dontSetActiveAgain = true;
         }
     }
     public void Search(UnityEngine.UI.Text text)
