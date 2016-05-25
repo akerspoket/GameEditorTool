@@ -1455,6 +1455,26 @@ Prefab:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 22436036, guid: 0f8fd34b57255ee49bf5b501737fd75d, type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 22436036, guid: 0f8fd34b57255ee49bf5b501737fd75d, type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22485920, guid: 0f8fd34b57255ee49bf5b501737fd75d, type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 22485920, guid: 0f8fd34b57255ee49bf5b501737fd75d, type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 22485920, guid: 0f8fd34b57255ee49bf5b501737fd75d, type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0f8fd34b57255ee49bf5b501737fd75d, type: 2}
   m_IsPrefabParent: 0
@@ -1634,6 +1654,10 @@ Prefab:
       propertyPath: cam
       value: 
       objectReference: {fileID: 1261553924}
+    - target: {fileID: 121432, guid: 0bf51ab1c3358614bb0126d65d47ae80, type: 2}
+      propertyPath: m_TagString
+      value: GridCreator
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0bf51ab1c3358614bb0126d65d47ae80, type: 2}
   m_IsPrefabParent: 0
