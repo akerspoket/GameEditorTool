@@ -69,7 +69,7 @@ public class ChatRoomHandling : MonoBehaviour {
     public void GetComment(string comment)
     {
         textJustSent = false;
-        timer = 0;
+        timer = 3;
         if (currentReturnMessage < returnMessages.Count)
         {
             string text = returnMessages[currentReturnMessage];
