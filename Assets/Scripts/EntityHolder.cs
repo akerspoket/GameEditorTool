@@ -6,10 +6,14 @@ public class EntityHolder : MonoBehaviour {
     public GameObject selectionRing;
     private GameObject ownRing;
     public bool selected;
+
+    GameObject hoverSpace;
+
 	// Use this for initialization
 	void Start () {
         ownRing = Instantiate(selectionRing);
         ownRing.GetComponent<MeshRenderer>().enabled = false;
+        hoverSpace = GameObject.FindGameObjectWithTag("HoverSpace");
     }
 	
 	// Update is called once per frame
@@ -39,7 +43,14 @@ public class EntityHolder : MonoBehaviour {
         GameObject shapeEditor = GameObject.FindGameObjectWithTag("ShapeEditor");
         this.selected = selected;
         if (!selected)
-        {           
+        {
+            // Check if inside area
+            if (hoverSpace.GetComponent<ShowOnHover>().IsInside())
+            {
+                this.selected = true;
+                return;
+            }
+
             ownRing.GetComponent<MeshRenderer>().enabled = false;
             shapeEditor.GetComponent<StartShapeEditor>().SetInactive();
         }   

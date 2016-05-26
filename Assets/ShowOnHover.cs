@@ -15,6 +15,7 @@ public class ShowOnHover : MonoBehaviour {
 
         var rect = GetComponent<RectTransform>().rect; //new Rect(0, 0, 150, 150);
         rect.position += new Vector2(transform.position.x, transform.position.y);
+
         if (rect.Contains(Input.mousePosition))
         {
             foreach (var item in hoverObjects)
@@ -30,4 +31,22 @@ public class ShowOnHover : MonoBehaviour {
             }
         }       
 	}
+
+    public bool IsInside()
+    {
+        Debug.Log("Checking Inside");
+        var rect = GetComponent<RectTransform>().rect; //new Rect(0, 0, 150, 150);
+        rect.position += new Vector2(transform.position.x, transform.position.y);
+
+        if (rect.Contains(Input.mousePosition))
+        {
+            Debug.Log("Is Inside");
+            return true;
+        }
+        else
+        {
+            Debug.Log("Not Inside");
+            return false;
+        }
+    }
 }
