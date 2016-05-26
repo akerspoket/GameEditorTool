@@ -3,7 +3,8 @@ using System.Collections;
 
 public class SphereScript : MonoBehaviour {
     private bool Creating = false;
-    GameObject m_object;
+    public GameObject m_object;
+    GameObject m_objInstance;
     // Use this for initialization
     public int nrOfClicks = 0;
     SortingOfBlueprints hejsan;
@@ -48,10 +49,10 @@ public class SphereScript : MonoBehaviour {
         }
 	}
 
-    public void CreateObject(GameObject objectToCreate)
+    public void CreateObject()
     {
-        m_object = Instantiate(objectToCreate);
-        m_object.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x
+        m_objInstance = Instantiate(m_object);
+        m_objInstance.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x
                 , Input.mousePosition.y, 10));
         nrOfClicks++;
         hejsan.SortList();
@@ -59,7 +60,7 @@ public class SphereScript : MonoBehaviour {
         Creating = true;
 
 
-        GetComponentInParent<Canvas>().GetComponentInChildren<EntitiesList>().AddNewActor(m_object);
+        GetComponentInParent<Canvas>().GetComponentInChildren<EntitiesList>().AddNewActor(m_objInstance);
     }
     public int GetClicks()
     {

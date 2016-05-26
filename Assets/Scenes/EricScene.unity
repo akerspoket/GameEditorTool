@@ -848,43 +848,43 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22434756, guid: 0f8fd34b57255ee49bf5b501737fd75d, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22434756, guid: 0f8fd34b57255ee49bf5b501737fd75d, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22427340, guid: 0f8fd34b57255ee49bf5b501737fd75d, type: 2}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22427340, guid: 0f8fd34b57255ee49bf5b501737fd75d, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22427340, guid: 0f8fd34b57255ee49bf5b501737fd75d, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22436036, guid: 0f8fd34b57255ee49bf5b501737fd75d, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 22436036, guid: 0f8fd34b57255ee49bf5b501737fd75d, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22485920, guid: 0f8fd34b57255ee49bf5b501737fd75d, type: 2}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 22485920, guid: 0f8fd34b57255ee49bf5b501737fd75d, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 22485920, guid: 0f8fd34b57255ee49bf5b501737fd75d, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0f8fd34b57255ee49bf5b501737fd75d, type: 2}
@@ -1672,6 +1672,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   listItemPrefab: {fileID: 143226, guid: a2470496080166f4dbb261c52545b8b1, type: 2}
+  actors: []
 --- !u!1 &764010318
 GameObject:
   m_ObjectHideFlags: 0
