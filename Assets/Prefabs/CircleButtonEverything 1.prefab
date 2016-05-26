@@ -132,7 +132,6 @@ GameObject:
   m_Component:
   - 224: {fileID: 22480180}
   - 114: {fileID: 11441066}
-  - 114: {fileID: 11423334}
   m_Layer: 5
   m_Name: CircleButtons
   m_TagString: Untagged
@@ -172,6 +171,7 @@ GameObject:
   - 114: {fileID: 11419682}
   - 114: {fileID: 11403476}
   - 114: {fileID: 11433380}
+  - 114: {fileID: 11432162}
   m_Layer: 5
   m_Name: ButtonTriggerForCircle
   m_TagString: Untagged
@@ -719,13 +719,12 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 11423334}
-          m_MethodName: CreateObject
-          m_Mode: 2
+        - m_Target: {fileID: 11432162}
+          m_MethodName: CreateLastObjectASD
+          m_Mode: 1
           m_Arguments:
-            m_ObjectArgument: {fileID: 149766, guid: 9d51e3f00cf1e224daed0fd60a0324a2,
-              type: 2}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -813,18 +812,6 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &11423334
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 125386}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc637f1b3b015dd4b82765310454931d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nrOfClicks: 0
 --- !u!114 &11427124
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -885,6 +872,17 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Create
+--- !u!114 &11432162
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 130306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 283d30a742df6e646a13f9f9c598cff7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11433380
 MonoBehaviour:
   m_ObjectHideFlags: 1
