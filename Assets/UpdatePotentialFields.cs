@@ -57,6 +57,11 @@ public class UpdatePotentialFields : MonoBehaviour
         return !useNormalShape;
     }
 
+    public void AlterCharge(int difference)
+    {
+        chargeValue += difference;
+    }
+
     // Update is called once per frame
     void Update()
     {

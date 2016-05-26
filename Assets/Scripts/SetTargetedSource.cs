@@ -14,15 +14,37 @@ public class SetTargetedSource : MonoBehaviour
     {
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);// kan va fel gameobjectposition
+
+
         if (Physics.Raycast(ray, out hit))
         {
-            if (hit.transform != gameObject.transform)
+            Debug.Log("new raycast");
+            float minDist = 100000;
+            Vector3 rayhitpos = hit.collider.transform.position;
+            GameObject[] ground = GameObject.FindGameObjectsWithTag("Finish");
+            
+            foreach (GameObject item in ground)
             {
-                if (hit.collider.gameObject.tag != "Respawn")
+                Debug.Log("evaling item");
+                float currDist = (rayhitpos - item.transform.position).magnitude;
+                Debug.Log(currDist);
+                if (currDist < minDist)
                 {
-                    m_objectToAlter = hit.collider.gameObject;
+                    Debug.Log(item);
+                    m_objectToAlter = item;
+                    minDist = currDist;
+                    Debug.Log("minDist " + minDist);
                 }
             }
+            //m_objectToAlter = closestObject;
+
+            //if (hit.transform != gameObject.transform)
+            //{
+            //    if (hit.collider.gameObject.tag != "Respawn")
+            //    {
+            //        m_objectToAlter = hit.collider.gameObject;
+            //    }
+            //}
         }
     }
     public GameObject GetGameObject()
