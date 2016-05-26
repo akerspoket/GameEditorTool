@@ -43,6 +43,7 @@ public class PlayPauseStepControll : MonoBehaviour {
         for (int i = 0; i < enemies.Count; i++)
         {
             enemies[i].GetComponent<AIStepping>().TakeStep();
+            enemies[i].GetComponent<AIStepping>().SetPause();
         }
     }
     public void StepBackAll()
@@ -50,6 +51,7 @@ public class PlayPauseStepControll : MonoBehaviour {
         for (int i = 0; i < enemies.Count; i++)
         {
             enemies[i].GetComponent<AIStepping>().StepBack();
+            enemies[i].GetComponent<AIStepping>().SetPause();
         }
     }
 

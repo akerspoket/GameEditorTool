@@ -107,7 +107,7 @@ public class AIStepping : MonoBehaviour {
             {
                 if (xToCheck >= 0 && xToCheck < 30 && yToCheck >= 0 && yToCheck < 30)
                 {
-                    float chargeToCheck = -gamePlane[xToCheck + yToCheck * 30].GetComponent<PotentialFieldCharge>().charge;
+                    float chargeToCheck = -gamePlane[xToCheck + yToCheck * 30].GetComponent<PotentialFieldCharge>().charge - gamePlane[xToCheck + yToCheck * 30].GetComponent<PotentialFieldCharge>().backgroundCharge;
                     if (chargeToCheck > highestCharge)
                     {
                         highestx = xToCheck;
