@@ -2,8 +2,14 @@
 using System.Collections;
 using UnityEngine.UI;
 using System;
+using System.Collections.Generic;
 
 public class AIStepping : MonoBehaviour {
+    struct Point
+    {
+        public int x;
+        public int y;
+    }
     private GroundCreation script;
     public float stepFreq;
     private float timer = 0;
@@ -12,6 +18,7 @@ public class AIStepping : MonoBehaviour {
     private int y;
     private bool Creating = true;
     private bool Playing = false;
+    private List<Point> steps = new List<Point>();
 	// Use this for initialization
 	void Start () {
         script = FindObjectOfType(typeof(GroundCreation)) as GroundCreation;
@@ -82,6 +89,12 @@ public class AIStepping : MonoBehaviour {
 	}
     public void TakeStep()
     {
+        // Save previous step
+        Point newpoint;
+        newpoint.x = x;
+        newpoint.y = y;
+        steps.Add(newpoint);
+
         int xToCheck = x - 1;
         int yToCheck = y - 1;
         int highestx = x;
@@ -112,5 +125,22 @@ public class AIStepping : MonoBehaviour {
         y = highesty;
         timer = 0;
         transform.position = gamePlane[x + y * 30].transform.position;
+    }
+    public void StepBack()
+    {
+        int last = steps.Count-1;
+        if (last > 0)
+        {
+            x = steps[last].x;
+            y = steps[last].y;
+            transform.position = gamePlane[x + y * 30].transform.position;
+            steps.RemoveAt(last);
+        }
+        else if (last == 0)
+        {
+            x = steps[last].x;
+            y = steps[last].y;
+            transform.position = gamePlane[x + y * 30].transform.position;
+        }
     }
 }
