@@ -804,23 +804,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cac9d277557a2e047b862332753386d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &939609126 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 194286, guid: f72f95f491d906945a3e37478128b4c4, type: 2}
-  m_PrefabInternal: {fileID: 1851099734}
---- !u!114 &939609129
+--- !u!114 &939609127 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 939609126}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
+  m_PrefabParentObject: {fileID: 11431464, guid: f72f95f491d906945a3e37478128b4c4,
+    type: 2}
+  m_PrefabInternal: {fileID: 1851099734}
   m_Script: {fileID: 11500000, guid: 488a6a0b64310f649bc506c9f9919a34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  listItemPrefab: {fileID: 143226, guid: a2470496080166f4dbb261c52545b8b1, type: 2}
-  actors: []
 --- !u!1001 &998648172
 Prefab:
   m_ObjectHideFlags: 0
@@ -935,6 +924,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   helpText: Options for doing things with the file
   ObjectToInstantiate: {fileID: 179510, guid: 01135449901de514bbe5b838e6efed4d, type: 2}
+--- !u!1 &1087882889 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 130306, guid: 441ac83820aabf54a9cc70aed488ce25, type: 2}
+  m_PrefabInternal: {fileID: 1177897181}
 --- !u!1001 &1177897181
 Prefab:
   m_ObjectHideFlags: 0
@@ -942,6 +935,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 115334152}
     m_Modifications:
+    - target: {fileID: 11400762, guid: 441ac83820aabf54a9cc70aed488ce25, type: 2}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 22416720, guid: 441ac83820aabf54a9cc70aed488ce25, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1013,6 +1010,38 @@ Prefab:
     - target: {fileID: 22416720, guid: 441ac83820aabf54a9cc70aed488ce25, type: 2}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400762, guid: 441ac83820aabf54a9cc70aed488ce25, type: 2}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400762, guid: 441ac83820aabf54a9cc70aed488ce25, type: 2}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400762, guid: 441ac83820aabf54a9cc70aed488ce25, type: 2}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 939609127}
+    - target: {fileID: 11400762, guid: 441ac83820aabf54a9cc70aed488ce25, type: 2}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: RemoveActorWithMouse
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400762, guid: 441ac83820aabf54a9cc70aed488ce25, type: 2}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400762, guid: 441ac83820aabf54a9cc70aed488ce25, type: 2}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400762, guid: 441ac83820aabf54a9cc70aed488ce25, type: 2}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 939609127}
+    - target: {fileID: 11400762, guid: 441ac83820aabf54a9cc70aed488ce25, type: 2}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: RemoveActorWithMouse
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 441ac83820aabf54a9cc70aed488ce25, type: 2}
@@ -1961,6 +1990,10 @@ Prefab:
       propertyPath: m_Color.b
       value: 0.42352945
       objectReference: {fileID: 0}
+    - target: {fileID: 11431464, guid: f72f95f491d906945a3e37478128b4c4, type: 2}
+      propertyPath: mouseRightClick
+      value: 
+      objectReference: {fileID: 1087882889}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f72f95f491d906945a3e37478128b4c4, type: 2}
   m_IsPrefabParent: 0

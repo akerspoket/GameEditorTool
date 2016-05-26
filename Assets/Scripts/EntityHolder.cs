@@ -25,10 +25,6 @@ public class EntityHolder : MonoBehaviour {
             if (Input.GetKeyDown(KeyCode.Delete))
             {
                 GetComponentInParent<EntitiesList>().RemoveActor(actor);
-                GameObject.FindGameObjectWithTag("GameController").GetComponent<PlayPauseStepControll>().RemoveEnemy(actor);
-                Destroy(actor);
-                Destroy(ownRing);
-                Destroy(this.transform.gameObject);
             }
         }
     }
@@ -63,5 +59,13 @@ public class EntityHolder : MonoBehaviour {
     public GameObject GetActor()
     {
         return actor;
+    }
+
+    public void DestroyThisEntity()
+    {
+        GameObject.FindGameObjectWithTag("GameController").GetComponent<PlayPauseStepControll>().RemoveEnemy(actor);
+        Destroy(actor);
+        Destroy(ownRing);
+        Destroy(this.transform.gameObject);
     }
 }

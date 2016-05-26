@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class EntitiesList : MonoBehaviour {
     public GameObject listItemPrefab;
+    public GameObject mouseRightClick;
     public List<GameObject> actors = new List<GameObject>();
 	// Use this for initialization
 	void Start () {
@@ -29,12 +30,12 @@ public class EntitiesList : MonoBehaviour {
 
     public void RemoveActor(GameObject obj)
     {
-        int index = 0;
         for (int i = 0; i < actors.Count; i++)
         {
             if (actors[i].GetComponent<EntityHolder>().GetActor() == obj)
             {
-                actors.RemoveAt(i);
+                actors[i].GetComponent<EntityHolder>().DestroyThisEntity();
+                actors.RemoveAt(i);          
                 i--;
             }
             else
@@ -44,5 +45,10 @@ public class EntitiesList : MonoBehaviour {
             }
         }
         
+    }
+
+    public void RemoveActorWithMouse()
+    {
+        RemoveActor(mouseRightClick.GetComponent<SetTargetedSource>().GetGameObject());
     }
 }

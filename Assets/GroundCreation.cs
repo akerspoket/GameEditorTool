@@ -17,7 +17,7 @@ public class GroundCreation : MonoBehaviour {
         {
             for (int j = 0; j < dimx; j++)
             {
-                GameObject newObj = (GameObject)Instantiate(obj, new Vector3(i, 0, j), new Quaternion(0, 0, 0, 1));
+                GameObject newObj = (GameObject)Instantiate(obj, new Vector3(i, 0, 30 - j), new Quaternion(0, 0, 0, 1));
                 groundArray[i * dimy + j] = newObj;
             }
         }
